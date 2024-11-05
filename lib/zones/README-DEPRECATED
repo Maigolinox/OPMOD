@@ -1,0 +1,3 @@
+The zones.php file and this directory are deprecated.
+
+Use lib/locale/##/zones.php instead

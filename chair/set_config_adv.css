@@ -1,0 +1,32 @@
+/*
+// +----------------------------------------------------------------------+
+// | OpenConf                                                             |
+// +----------------------------------------------------------------------+
+// | Copyright (c) 2002-2022 Zakon Group LLC.  All Rights Reserved.       |
+// +----------------------------------------------------------------------+
+// | This source file is subject to the OpenConf License, available on    |
+// | the OpenConf web site: www.OpenConf.com                              |
+// +----------------------------------------------------------------------+
+*/
+
+#oc_notice {
+	position: fixed;
+	top: 0;
+	left: 100px;
+	min-width: 300px;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 1.1em;
+	border: 4px solid #333;
+	display: none;
+	z-index: 100;
+}
+#oc_notice.ocnotice {
+	background-color: #9f9;
+	color: #000;
+}
+#oc_notice.ocerror {
+	background-color: #f99;
+	color: #000;
+}
+

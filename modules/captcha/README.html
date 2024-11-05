@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CAPTCHA Module for OpenConf</title>
+<style type="text/css">
+body { font-family: arial, helvetica, sans-serif; font-size: 80%; }
+</style>
+</head>
+
+<body>
+<h1>CAPTCHA Module for OpenConf</h1>
+
+<p>This module adds a <a href="https://en.wikipedia.org/wiki/CAPTCHA" title="Wikipedia definition page" target="_blank">CAPTCHA</a> verification to the submission and contact forms so as to ensure they are submitted by a person.</p>
+
+<h3>Requirements and Configuration</h3>
+
+<p>If running OpenConf on your own server, sign up for an <a href="https://www.hcaptcha.com/" target="_blank">hCaptcha</a> or a <a href="https://www.google.com/recaptcha" target="_blank">Google reCAPTCHA</a> account and enter your account API keys into this module's settings.  <b>Note:</b> PHP must be configured so that allow_url_fopen is enabled.</p>
+
+<p>The <i>OpenConf Hosting Service</i> already has this module pre-configured and no configuration is necessary &ndash; simply install and activate the module.</p>
+
+<h3>Usage &ndash; Authors</h3>
+
+<p>Follow the instructions provided with the CAPTCHA field on the form.</p>
+
+<hr />
+
+<p>Version 3.0.1<br />
+- Fixed Google ReCAPTCHA
+</p>
+		
+<p>Version 3.0.0<br />
+- Added hCaptcha
+</p>
+	
+<p>Version 2.1.0<br />
+- Removed deprecated reCAPTCHA 1.0
+</p>
+
+<p>Version 2.0.0<br />
+- Added support for reCAPTCHA 2.0
+</p>
+
+<p>Version 1.3.0<br />
+- Added settings import/export
+</p>
+
+<p>Version 1.2.2<br />
+- Updated recaptchalib.php
+</p>
+
+<p>Version 1.2.1<br />
+- Fixed PHP_SELF reference in init.inc
+</p>
+
+<p>Version 1.2.0<br />
+- Changed to use new submission form fieldset<br />
+- Split out author and concact fields
+</p>
+
+<p>Version 1.1.1<br />
+- Added token check for settings.inc
+</p>
+
+<p>Version 1.1.0<br />
+- Changed author-validate to check for existence of POST variables
+- Changed author-fields to not display blank table row for contact form, and included field label
+</p>
+
+<p>Version 1.0.0<br />
+- Initial Release</p>
+</body>
+</html>

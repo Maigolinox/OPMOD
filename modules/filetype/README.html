@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>File Format Check Module for OpenConf</title>
+<style type="text/css">
+body { font-family: arial, helvetica, sans-serif; font-size: 80%; }
+</style>
+</head>
+
+<body>
+<h1>File Format Check Module for OpenConf</h1>
+<p>This module verifies whether an uploaded file matches the selected format.  Instead of relying on the file extension or browser-provided MIME type, at least for the formats below, the file itself is inspected to determine its format through signature matching.  If a signature is not available, the file extension is checked instead.</p>
+<p>Signature checking is currently available for the following:<br />
+<ul>
+<li>Adobe PDF</li>
+<li>HTML</li>
+<li>Microsoft Word</li>
+<li>PostScript</li>
+<li>RTF</li>
+<li>WordPerfect</li>
+<li>XML</li>
+</ul>
+</p>
+
+<h3>Requirements</h3>
+
+<p>none</p>
+
+<h3>Configuration</h3>
+
+<p>Options are provided in this module's settings that allow excluding Office (2007) Open XML documents (.docx) and RTF documents from being accepted as Word documents.</p>
+
+<h3>Usage</h3>
+
+<p>When a file is uploaded, the detected file format is automatically verified against the selected  format.  If the format does not match, the upload will not be completed and a notice is displayed.</p>
+
+<hr />
+
+<p>Version 3.1.1<br />
+  - Moved function mod_filetype_checksig to module.inc
+</p>
+
+<p>Version 3.1.0<br />
+  - Added multi-files upload support</p>
+
+<p>Version 3.0.1<br />
+  - Fixed missing setting export/import hooks</p>
+
+<p>Version 3.0.0<br />
+  - Added file format identification using PHP Fileinfo</p>
+
+<p>Version 2.0.1<br />
+  - Added file extension verification of MS Office 2007+ formats</p>
+
+<p>Version 2.0.0<br />
+  - Added settings import/export<br />
+  - Added module installation and activation as part of standard OpenConf installation<br />
+  - Added support for custom Author/Chair name<br />
+  - Added alternative file extensions for jpg and mpg<br />
+  - Renamed module to File Format Check
+</p>
+
+<p>Version 1.0.5<br />
+  - Fixed HTML file type verification
+</p>
+
+<p>Version 1.0.4<br />
+  - Dropped setting MOD_FILETYPE_allow_officeopenxml as .docx/.xlsx/.pptx added as MIME types<br />
+  - Changed paperid to mediumint(6)<br />
+  - Changed author-file-validate to handle both submission and upload (dropped author-upload-validate)
+</p>
+
+<p>Version 1.0.3<br />
+  - Added token check for settings.inc
+</p>
+
+<p>Version 1.0.2<br />
+  - Added support for file type validation of files uploaded during initial submission
+</p>
+
+<p>Version 1.0.1<br />
+  - Fixed extraneous print in author-upload-validate.inc
+</p>
+
+<p>Version 1.0.0<br />
+  - Initial Release</p>
+</body>
+</html>

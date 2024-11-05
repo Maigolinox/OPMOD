@@ -1,0 +1,68 @@
+==============
+ REQUIREMENTS
+==============
+
+- HTTP Server* (TLS/SSL highly recommended)
+- PHP 5.6+ with modules: curl, intl, json, mbstring, mysqli, openssl, xml, zip
+- MySQL 5.6+ or MariaDB 10+
+
+* OpenConf was developed using Apache and makes use of .htaccess files to help
+  protect sensitive files and directories. Make sure to update your HTTP server
+  configuration to support .htaccess files or change the config accordingly.
+
+
+=========
+ INSTALL
+=========
+
+1. Download the OpenConf software archive and extract (unzip) files 
+   into the Web server document root directory, maintaining the
+   OpenConf sub-directory structure.
+
+2. Ensure Web server can create or write to:
+    openconf/config.php
+    openconf/data/   (and sub-directories)
+
+3. Browse to https://[HOST]/openconf/ and follow web instructions.
+
+See https://www.OpenConf.com/support/ for additional documentation.
+
+
+=========
+ UPGRADE
+=========
+
+1. Backup your current OpenConf database and files.
+
+2. Extract (unzip) new OpenConf archive over top of current directory;
+   your settings and custom modules will remain intact, however code 
+   customizations will be overwritten.
+
+3. Sign in as Chair and browse to:
+      https://[HOST]/openconf/chair/upgrade.php
+   Follow the instructions provided.
+
+
+============================
+ ETCETERA / TROUBLESHOOTING
+============================
+
+- For email issues, see our troubleshooting guide:
+  https://www.OpenConf.com/documentation/email.php#troubleshooting
+
+- OpenConf does not limit the size of files that may be uploaded;
+  PHP however does.  You will need to modify PHP's max file and form upload
+  settings if you want to support larger files being uploaded; do not forget
+  to restart the HTTP server when you update PHP settings.
+
+- If you are uncomfortable having a file (config.php) with the database
+  password inside the Web document space, you can move it elsewhere
+  and simply modify the OCC_CONFIG_FILE define in include.php.
+  
+- In order to use OpenConf's multilingual capability, PHP must be compiled 
+   with gettext, and the system have the proper locale(s) installed.
+   See lib/locale/locale.inc for appropriate locales.
+   
+- If you are running multiple instances of OpenConf, you must ensure the
+  value of OCC_SESSION_VAR_NAME in config.php is different for each in order
+  to prevent cross-instance access.

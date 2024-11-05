@@ -1,0 +1,1311 @@
+### OpenConf 7.40 ###
+
+- Added module: Shepherd
+- Added module name to open/close status change log entries
+- Added DB field paper:decision_date
+- Changed ZIP downloads to check for and notify of missing files prior to size check
+- Updated CKEditor to 4.19
+- Updated jQuery to 3.6.0 and jQueryUI to 1.13.1
+
+Author:
+
+- Fixed display of file field on edit submission form based on path regex
+- Added option to require authors' email address to be unique on submission form
+
+Chair:
+
+- Added recording of last acceptance decision date
+- Fixed incorrect count used in assignment algorithm
+
+Advocate Assign:
+
+- Fixed review count validation when unassigning reviews
+
+Bidding:
+
+- Added ability to unset In Conflict bids through Chair's List Conflicts
+- Changed default bid on committee bidding page to unselected
+- Added Export Bids feature
+
+Copyright-ACM:
+
+- Updated export to include new art_submission_date and art_approval_date fields
+
+Copyright-IEEE:
+
+- Added setting to restrict eCopyright access to accepted submissions only
+
+Custom Forms:
+
+- Fixed missing config setting removal when module uninstalled
+
+FileType:
+
+- Moved function mod_filetype_checksig to module.inc
+
+MultiFile:
+
+- Fixed FileType validation when doing multiple file uploads at once
+
+ORCID:
+
+- Changed token storage method
+
+Program:
+
+- Added discussant to mobile program session presentations page
+- Added VTIMEZONE section to .ics file for Outlook/Windows compatibility
+- Changed program submissions with accepted type Publish attribute unset to not link/display
+- Fixed List Accounts error when no assignments present for account holder
+- Fixed missing date/time variables in program book sessions block
+
+Submission Pre-Payment:
+
+- Changed to allow multiple fees to be defined with custom labels (only one may be selected by submitter)
+- Changed to allow a fee of 0 which bypasses payment and immediately approves the submission request
+- Changed notice atop submission pre-payment page to be editable by Chair
+- Removed deprecated A.net DPS/SIM code
+- Removed extraneous consent code
+- Fixed consent recording
+
+
+### OpenConf 7.30a ###
+
+- Updated Copyright-ACM module XML export to latest ACM DTD
+- Fixed PHP 8 undefined constant reference on installation
+- Fixed MultiFile upgrade SQL from 7.20
+- Fixed Bid module CSS class name
+- Fixed Discussion module comment posting error validation
+- Fixed Program module non-translated SCD Sign In string
+
+
+### OpenConf 7.30 ###
+
+- Updated plugins CDNs to latest stable releases (Chart.js, CKEditor)
+- Added Anchor feature to CKEditor when using CDN
+- Changed header Location redirects to remove ../ references
+
+Author:
+
+- Added Submission ID "forgot" link to password reset form
+- Changed file upload size validation to provide more meaningful feedback when file too large
+- Changed file upload to include file size limit notice when custom OC_fileLimit used
+
+Committee:
+
+- Added Username "forgot" link to password reset form
+
+Copyright-ACM:
+
+- Updated CSV export to latest ACM ICPS field requirements
+- Added ACM ICPS XML export
+- Removed configuration setting OC_ACM_COPYRIGHT_authorEmail
+
+Copyright-IEEE:
+
+- Added eCopyright status and update features
+- Added API settings
+- Updated settings page layout
+- Removed deprecated test (QA) server option and associated copyright mode setting
+
+FileType:
+
+- Added multi-files upload support
+
+MultiFile:
+
+- Added support for uploading multiple files of different types at the same time
+- Added file last updated date to display with document icon and file size
+- Changed module settings to allow multiple type options to be updated at once
+- Changed file column to be centered
+
+Payment:
+
+- Dropped Braintree support
+
+Plagiarism-Docoloc:
+
+- Fixed settings API validation
+
+Plagiarism - iThenticate:
+
+- Changed IXR_Library.php to address PHP7 incompatible language constructs
+
+Program:
+
+- Changed sessions edit page to display hyphen if session title only has spaces
+- Removed deprecated Unicode special characters filter
+- Fixed mobile program extraneous font file reference
+
+Reviewer Upload:
+
+- Added file updated date to author display
+
+
+### OpenConf 7.20a ###
+
+- Fixed time zone entry for Honolulu (en)
+- Fixed automated Chair review assignments to exclude advocates from random assignments where Assign PC as reviewer is No
+- Fixed Google ReCAPTCHA
+
+
+### OpenConf 7.20 ###
+
+- Added file formats MP3 (audio/mpeg), MP4 (video/mp4)
+- Changed OC_wordForChair to skip use when preceded by Session (i.e., Session Chair)
+- Changed Header Image to have max-width of 100%
+- Changed SQL files to remove deprecated MySQL *int display attribute - new installs only
+- Changed timezone file to locale directories; added include.php:oc_generateSelectTimeZoneOptions(), oc_validateTimeZone()
+- Changed use of OC_mailParams in oc_mail() to use constant OCC_MAILPARAMS (undefined by default) and dropped setting
+- Removed extraneous global definitions in oc_sendEmail()
+- Deprecated lib/zones/zones.php
+
+Author:
+
+- Changed Edit Submission menu to View Submission when editing closed but viewing allowed
+- Changed Edit Submission to handle View Submission without redirect; renamed view.php to view.inc and revised
+
+Chair:
+
+- Changed order of and consolidated some Chair home page menus
+- Added settings to change Words for Author and Chair on configuration page (Localization section)
+- Changed time zone setting to use new zones file format
+
+Acceptance:
+
+- Changed settings color selection to use input type=color
+
+Custom Forms:
+
+- Added Chair Only submission form field attribute to limit field editing to Chair only
+
+Payment:
+
+- Dropped deprecated UNSIGNED attribute to DECIMAL column
+- Changed deprecated PHP in Braintree library
+
+Proceedings:
+
+- Removed extraneous word Proceedings from download
+
+Program:
+
+- Changed (ICS) calendar file UIDs to support calendar event updates
+- Changed (ICS) calendar summary to include event Short Name at start (vs end)
+- Changed My Program cookie to remember session selections for 90 days
+- Changed My Program page to be bookmarkable
+- Added session and submission links to the full program under My Program page and .ics calendar file
+- Changed (ICS) calendar file time zone to use general time zone setting if program zone not configured
+- Added full program page notice setting (OC_PROGRAM_fullProgramNotice)
+- Added hooks: program-myprogram-top, program-myprogram-bottom, program-myprogram-ics-top
+- Changed time zone setting to use new zones file format
+- Changed time formatting and localization to be handled by PHP instead of MySQL
+- Added user selectable time zone to full/glance program and session chair/discussant assignments
+- Added time zone and location (room) links to XML program
+- Changed session chair and discussant "pick" links to icon on Chair edit session page
+- Added location (room) links; use location edit feature to add links
+- Changed mobile program to use full program time zone if set
+- Changed mobile program to hyperlink session title and location (room) name if links set
+- Added session selection and highlight to mobile program integrated with My Program feature
+- Added feature for Chair to change session type background colors for full program
+- Changed session editing to display year selection with 3 options (current year + 2 more)
+- Fixed blank year selection when editing session if session year option too far in future
+- Deprecated princeXML integration
+
+
+### OpenConf 7.10a ###
+
+- Fixed Chair committee member search
+- Fixed Chair list submissions and unassign reviews ID count check
+
+
+### OpenConf 7.10 ###
+
+- Updated plugins CDNs to latest stable releases (Chart.js, CKEditor, jQuery)
+- Added skipping display of topics named N/A on submission and committee profile forms
+- Changed default privacy policy cookie section, banner message and button text
+- Added SameSite session cookie parameter for PHP >= 7.3
+- Removed check.gif and replaced its use with checkmark HTML character entity
+
+Chair:
+
+- Added search of submissions and committee members with emailing matches
+- Added committee member sign up and last sign in dates to detailed member page
+- Changed submission edit to not display email address confirmation message
+- Added notice when trying to delete more submissions or unassign more reviews than supported by PHP max_input_vars
+- Changed log search results order to sub-sort descending by logid
+
+CAPTCHA:
+
+- Added support for hCaptcha
+
+Custom Forms:
+
+- Changed message atop field option value editing dialog if data exists
+
+Copyright-IEEE:
+
+- Added support for submissions search of IEEE Copyright Type field
+
+MultiFile:
+
+- Removed _Photo# from list of displayed file icons
+
+Program:
+
+- Added speakers tab to mobile program
+- Changed mobile program file viewing to not require full web program be open
+- Added discussant email verification
+- Added cookie confirmation when creating personalized program
+- Changed List Discussants edit link to point at discussants section of session page
+- Fixed missing author photo in program
+
+
+### OpenConf 7.00a ###
+
+- Fixed advocate auto assignment (Auto Assign)
+- Added referrer origin meta header (Copyright-IEEE)
+
+
+### OpenConf 7.00 ###
+
+! Requires PHP 5.6+ with PHP 7.2+ recommended
+! Requires MySQL 5.6+ (for earlier versions, may need to change OCC_DB_ENCODING and OCC_DB_COLLATION in include.php)
+! Changed default MySQL encoding and collation to utf8mb4 (yay, emojis) and utf8mb4_unicode_520_ci, respectively, now set in include.php
+! Dropped upgrade support for versions older than 5.31 (2014)
+! Dropped Internet Explorer as a supported browser -- use something modern
+- Added hooks: mailsend
+- Added support for MySQL SSL connections
+- Updated MySQL locale for Bosnian and Serbian
+- Added module: ORCID
+- Removed module: Publons
+- Updated plugins CDNs to latest stable releases (Chart.js, CKEditor, CookieConsent, jQuery/UI)
+- Updated time zones
+- Added data/.htaccess with deny from all -- previously added to individual directories upon creation
+- Added DB author.role, email_queue.reference_id
+- Changed DB email address and organization varchar to 150 due to utf8mb4 key limitation (for new installs)
+- Changed DB paperreviewer.score to smallint(4) (for new installs)
+- Changed DB paperid and reviewerid to int(10) (for new installs)
+- Changed DB paper.title to varchar(1000)
+- Changed default form input maxlength to match DB.sql definition with utf8mb4 allowance
+- Changed OC_mailHeaders X-Mailer to X-OC for new installations
+- Changed upgrade to one-click for multi-version updates
+- Changed module upgrades to no longer specifying module IDs in main upgrade-#-# files 
+- Changed oc_mail() to skip sending messages with empty subject or body and return true
+- Changed consent form fields to be more translation friendly
+- Changed mail From header to be encoded if multibyte
+- Changed forms to not display empty fieldsets when all its fields removed (e.g., by a module)
+- Changed review scoring to allow score of 0 for custom implementations
+- Added support for custom translation of Configuration Notices
+- Added support for changing English (en) strings through translation extras.inc feature
+- Added include.php:oc_ucfirst()
+- Added Reference ID to queued messages (log) with submission and/or reviewer ID if available
+- Changed form confirmation messages to strip a/href tags from submitted fields
+- Changed config setting update to strip out \r from strings to maintain translation parity
+- Changed Chair sub/rev/cmt export to disable translation so data may be re-imported
+- Fixed Email Chair feature message field update in case of error on submission
+- Fixed review recovery Submit string translation
+- Changed oc_createDir umask reset to after htaccess creation
+- Removed deprecated creation of $$var for $OC_configAR[$var] and $OC_statusAR[$var]
+- Removed deprecated functions: oc_checkField(), oc_checkAuthorField(), fix_magic_gpc()
+- Removed deprecated form field attributes: size, maxsize
+- Removed deprecated JS function: oc_showProcessing()
+- Removed deprecated hook: chair-unassign-review
+- Removed deprecated password support and lib/password_compat.php
+- Removed deprecated variable/config support for: $OC_requireSubmissionUploadField, $OC_abstractLength
+- Removed deprecated variables from review/show_abstract.php: $displayAuthorFields, $displaySubmissionFields
+
+Chair:
+
+- Added topic filter on review and advocate manual assignment pages
+- Added confirmation dialog when Chair Email setting is changed
+- Added reminder notification when software updated but upgrade not yet run
+- Added submissions import feature
+- Added template download to committee import
+- Changed restoring of withdrawn submission to assign new ID to avoid conflict if re-used
+- Changed export of multi-value fields (e.g., Topics, checkboxes, picklist) to be separated by newline
+- Changed committee import to use newline (vs comma) delimited multi-value fields (e.g., Topics)
+- Added encoding selecion and check for non-UTF-8 content to committee import
+- Changed email preview to only display To and Subject headers
+- Fixed missing message content for Contact Chair feature
+- Fixed log search results table headers
+
+Committee:
+
+- Addded random string to keycodes during database install
+- Added email address confirmation notice above sign up form submit button
+- Fixed notification when submission withdrawn for incomplete reviews only
+
+Author:
+
+- Added email address confirmation notice above submission form submit button
+- Added CRediT Contributor Role author field as option on Plus/Pro submission form
+- Fixed edit link when timeout error occurs
+- Removed deprecated Google+ URL author field
+
+Advocate Assign:
+
+- Added optional advocate notification of review(s) completion
+
+Custom Forms:
+
+- Added ability to modify Consent field text
+- Added settings option to disable individual Submission Type field options
+- Added special notice when removing Topics field from forms
+- Fixed untranslated field note text on submission and committee profile forms
+- Changed submission form title field to support up to 1000 characters
+- Changed DB TEXT table fields to LONGTEXT in support of longer custom forms
+- Updated jQuery CDN libraries 
+- Changed AJAX deprecated sync calls to async
+
+Docoloc:
+
+- Added save_file hook when saving reports
+
+Payment:
+
+- Updated Braintree library
+- Removed Authorize.net DPM and SIM payment methods
+
+Program:
+
+- Added Session Types and Location (Room) Names editing feature
+- Added option to vertically align concurrent RefereedPapers session presentations
+- Added improved Title Case support for left/right quotation marks
+- Added Title Case support within submission summary pages, mobile program, XML, and books
+- Added consent text and date/time recording
+- Fixed settings field hiding when selecting Conc. Session Sort Order value
+- Fixed mobile program Talks tab to properly sort when first title character is a number
+- Fixed incorrect files hook setup in scd-assignments
+- Added List Accounts table row alternating background
+- Fixed List Accounts table row display when no assignment present
+- Added session type as CSS section class in mobile program
+- Added setting (OC_PROGRAM_titleID) to include submission ID with title
+
+Reviewer Upload:
+
+- Updated deprecated hook and changed .inc for chair-unassign-review
+
+Submission Pre-Payment:
+
+- Changed deprecated oc_checkField() to oc_validateField()
+- Added email address confirmation notice above submission form submit button
+
+
+### OpenConf 6.90a ###
+
+- Added ability to modify Consent field text through Custom Forms module
+- Added individual review score to Export Reviews options
+- Changed Email Chair feature to send message From Chair address with Reply-To sender
+- Fixed email sending when individual recipients selected under PHP>=7.1
+- Fixed error when sending email to individual program discussants or session chairs
+- Fixed Payment module Authorize.net Accept.js processing
+
+
+### OpenConf 6.90 ###
+
+- Chaged lib/config-sample.php define()s to use single-quote instead of double-quote, and updated replaceConstantValue() accordingly
+- Changed ocsql_query to reset global DB error variables
+
+Chair:
+
+- Added options to select acceptance type and to keep comments when clearing review or advocate recommendation data
+- Added email recipient group "Authors - All accepted" for when multiple accepted types are defined
+- Added committee member profile update through Chair interface
+- Added email feature option to send at most one message per email address
+- Fixed erroneous message when manually assigning reviews that included an existing assignment
+
+Advocate:
+
+- Added notification when assigned submission withdrawn (template: committee-withdrawnsub)
+- Changed table of submissions to advocate so those missing recommendations are shown at the top
+
+Reviewer:
+
+- Added notification when assigned submission withdrawn and review not yet completed (template: committee-withdrawnsub)
+- Changed table of submissions to review so those not yet completed are shown at the top
+
+Acceptance:
+
+- Added "Pending" and "All Submissions" as reserved option labels
+
+Custom Forms:
+
+- Changed error message when adding field with invalid ID
+- Fixed missing hidden field attributes newsubonly, enabled, donotvalidate
+
+MultiFile:
+
+- Added files-publish.inc to retrieve listing of publishable files for submissions
+
+Proceedings:
+
+- Added option to include review data on submission summary page (yay, open reviews!)
+- Removed biographies variable from submission summary page
+
+Program:
+
+- Redeveloped mobile program -- all new!
+- Added option to include review data on submission summary page (yay, open reviews!)
+- Changed settings page options layout
+- Changed matrix program and program book to use natural title sort
+- Removed biographies variable from submission summary page
+
+
+### OpenConf 6.81a ###
+
+- Added who sent Email Chair message to body in case headers obscured
+- Added support for hyphenated log Type filter
+- Added processing of $hdr parameter if Mail module in use but only for setting Reply To to From
+- Fixed payment module hash decryption
+- Fixed proceedings module download embedded links to author file
+- Added program module SCD assignments hook oc_program-scd-assignments with variable control over whether email links included
+- Changed committee profile form submission to skip automatic validation of username and password fields, and only perform manual validation
+- Fixed reviewers import
+
+
+### OpenConf 6.81 ###
+
+- Added Indonesian translation
+- Added privacy policy and consent fields
+- Added support for commas in Event Short Name
+- Added hooks: delete_reviewer
+- Added openconf.js:oc_toggleCheckboxes()
+- Changed oc_getTemplate to skip translation for templates of type other
+- Changed module info page display format
+- Replaced deprecated nobr and p/ tags
+- Changed GROUP BY queries to support MySQL ONLY_FULL_GROUP_BY
+- Updated oc_idGen() to use openssl_random_pseudo_bytes() if available with optional length parameter
+- Added fallback attempt when adding file to ZIP archive initially fails
+- Added UTF-8 encoding param to mbstring fallback calls in oc_caseConvert()
+- Added support for extra translation strings to be read from a file
+- Updated idna_convert.class to 0.9.1
+- Changed idn_to_ascii calls to include variant
+- Replaced PHP --with-mcrypt requirement with --with-openssl
+
+Chair:
+
+- Added multi-factor authentication option for sign in
+- Added warning on automated assignments page when selecting not to keep existing assignments or to skip accepted submissions
+- Added deletion of withdrawn submissions
+- Added log and message queue search and delete
+- Changed Chair Email Templates to prevent deletion of built-in templates
+- Added option to encrypt exported settings file
+- Fixed message preview and variables when selecting individual submission authors
+
+Reviewer:
+
+- Fixed translation of review confirmation email
+- Changed View Submissions link to always be displayed
+
+Author:
+
+- Changed submission Title field default to be editable after new submissions are closed for new installations
+- Added option for author to view submission once Edit Submission is closed
+
+Bidding:
+
+- Added support for committee member deletion
+
+CAPTCHA:
+
+- Removed deprecated reCAPTCHA 1.0 support
+
+Copyright-ACM:
+
+- Added author affiliation to ICPS export
+
+Copyright-IEEE:
+
+- Added option to display IEEE cookie banner
+
+Custom Forms:
+
+- Fixed translation of field option values on review and committee forms
+
+Discussion:
+
+- Added support for committee member deletion
+- Fixed sort ordering of review scores
+
+Form Fields:
+
+- Added committee profile form
+
+Plagiarism-Docoloc:
+
+- Added submission deletion support
+- Fixed settings FileType error
+
+Plagiarism-iThenticate:
+
+- Added support for submission deletion
+- Removed deprecated HTTP_RAW_POST_DATA code in IXR_Library
+- Changed deprecated mcrypt function calls to use openssl
+
+Program:
+
+- Reorganized Chair's Program menus section
+- Added listing and export of discussant and session chair accounts
+- Added listing with deletion of accounts
+- Added consolidated program conflicts view
+- Added Location (room) to at-a-glance program
+- Added option to include time zone in personal program ICS file
+- Added consent field to session chair / discussant (other) account sign up form
+- Added full program option to convert names to title case
+- Added email all link under each session when session chair viewing assignments
+- Changed mobile program map to use Google Maps API -- key now required via module settings
+- Changed lat/long update from address in settings to direct async JS call to GMap geocoding API and removed latlong.php
+- Renamed Program - Contact Authors email recipient group and template to Program - Authors
+- Fixed Program - Authors recipient group program-session email variable when OC_emailAuthorRecipients set to All
+- Added book hooks: program-abstract_book-end, program-program_book-end
+
+Rebuttal:
+
+- Added support for committee member deletion
+
+Reviewer Upload:
+
+- Added file deletion feature for Chair
+- Added setting to specify upload file format(s)
+- Added support for committee member deletion
+- Fixed dangling format when submission deleted 
+
+Submission Payment:
+
+- Added consent field on submission form if privacy policy in use
+- Added submission deletion support
+- Fixed module uninstall
+
+
+### OpenConf 6.80 ###
+
+- Changed document type to HTML5
+- Added Mail module for use of external SMTP server
+- Removed support for old IE versions (conditional comments)
+- Added hooks: display-review-post, mail, include-bottom, header-top-pre, chair-signout-pre, chair-signout-post, committee-signout-pre, committee-signout-post, committee-signup-pre, committee-update-pre
+- Added dropdown and picklist field type support for usekey=false
+- Updated CKEdtior CDN to 4.7.2
+- Changed setting default to not display reference links (OC_includeReferenceSearchLinks) for new installations
+- Removed Microsoft Academic Search from reference links as it is decommissioned
+- Updated time zones and modified to use zone1970.tab as source instead of deprecated zone.tab
+- Removed default value for paper.submissiondate DB field in new installs
+- Removed deprecated committee guidelines menu
+
+Chair:
+
+- Added option on Scores page to switch score sort order by clicking sort arrow
+- Added committee member (CSV) import feature
+- Added advocate name and email variables to email Author recipient groups
+- Added scheduling option to open/close features
+- Changed auto assign advocate max subs field size
+- Changed email process queue handoff to relative URL to avoid session loss in some browsers
+- Added ability to edit message when sending email without selecting recipients and option checked
+- Changed configuration page to have fieldsets collapsed by default post-installation, and to display atop page when expanded
+- Changed new password to require 10+ characters and differ from username
+- Updated Set Conflicts interface
+
+Advocate:
+
+- Changed Submissions to Advocate table score to display hyphen (-) if no reviews present
+- Added advocate permission option to see acceptance decision on View Submissions page (OC_advocateSeeDecision)
+- Changed behavior of OC_advocateSeeOtherReviews so it is only enabled if OC_advocateReadPapers
+- Added additional means of recommendation recovery on session timeout
+
+Reviewer:
+
+- Added reviewer permission option to display advocate contact info atop review form (OC_reviewerSeeAdvocate)
+- Added reviewer permission option to see acceptance decision on View Submissions page (OC_reviewerSeeDecision)
+- Changed review.php values for $showEmailCopy and $showCompletedReview to support corresponding field checked value status
+- Changed behavior of OC_reviewerSeeOtherReviews so it is only enabled if OC_reviewerReadPapers
+- Added additional means of review recovery on session timeout
+- Changed use of SQL NOW() to PHP date()
+
+Author:
+
+- Added setting to display reviews on Check Status page even if submission decision pending (OC_authorSeePendingSubReviews)
+- Added Photo Link author field to submission form
+
+Advocate Assign:
+
+- Updated auto notification message
+
+Copyright-ACM:
+
+- Fixed extraneous semi-colon in install-db
+
+Custom Forms:
+
+- Updated jQuery CDN libraries 
+
+MultiFile:
+
+- Added full author email variables support for MultiFile Chair email recipient groups
+- Added author photo support
+
+Payment:
+
+- Added support for Authorize.net Accept.js method
+- Fixed settings warning on empty PayPal currency code
+
+Proceedings:
+
+- Added author photo support
+
+Program:
+
+- Added session data to settings export options
+- Changed Title Camel Case feature to handle initial non-letter characters
+- Changed mobile program data export to be JSON compliant
+- Fixed mobile page edit invalid pageid notice
+- Added author photo support
+- Added date picker to session edit page
+
+Reviewer Upload:
+
+- Added advocate access to review file on submission recommendation page 
+
+Submission Payment:
+
+- Added support for Authorize.net Accept.js
+
+
+### OpenConf 6.71 ###
+
+- PHP 5.4+ now required; 5.3.7+ temporarily supported for non-Program module features
+- Updated safeHTMLstr() to force UTF-8 and ENT_SUBSTITUTE
+- Added hooks: settings-import-pre, settings-export-pre, db-backup-pre, db-reset-pre
+- Fixed ZIP archive creation for bulk file download
+- Changed browser field validation of char/word limit to use onchange vs onblur events to avoid Safari alert loop, and re-focus on field
+- Fixed browser field validation of word limit to calculate empty or space-only string as zero count
+- Updated Chart.js CDN version
+
+Chair:
+
+- Fixed unassign review/advocate feature
+- Fixed notification message content when making manual review assignments to multiple advocates or reviewers
+- Fixed auto assignment of reviewers when random assignment option selected and reviewer has no prior assignments
+
+Advocate Assign:
+
+- Fixed notification message content when making review assignments to multiple reviewers
+
+Custom Forms:
+
+- Added feature to check and repair custom fields in database
+- Added feature to recalculate review scores when field Score attribute changes are made after reviews have been submitted
+- Fixed JS error for legacy custom modules including empty values attribute in text fields
+- Updated jQuery CDN version 
+
+Plagiarism-iThenticate:
+
+- Updated to use ocGetFile
+- Fixed missing report generation due to string/integer comparison
+
+Plagiarism-Docoloc:
+
+- Updated to use ocGetFile
+- Fixed missing report generation due to string/integer comparison
+
+Program:
+
+- Added discussant name and affiliation variables for submission summary template
+- Fixed double-encoding of author organization and country when displayed in full program
+
+Rebuttal:
+
+- Added support for custom review forms
+
+
+### OpenConf 6.70 ###
+
+- Changed include.php:oc_strftime() to default to time() if time sent in is empty
+- Added $who param to oc_deleteAssignments(), and logging of deleted review/advocate assignments
+- Fixed settings import if custom committee member fields in use
+- Added conversion of email address mailbox part when sending messages to workaround PHP mail() for utf-8
+- Changed regex character matching to support Unicode letter matching
+- Changed include-forms.inc field validation to display a 1 for min word range if field is required and input resulted in error
+- Added accessibility improvements
+- Updated Chart.js CDN version and removed Chart.HorizontalBar plugin
+- Updated CKEditor CDN version
+
+Chair:
+
+- Added file deletion under View Uploaded Files
+- Added option to toggle emailing all authors or contact only to settings configuration page
+- Added config option to allow reviewer to un-assign (own) review (OC_reviewerUnassignReviews)
+- Fixed recipient mismatch warning when OC_emailAuthorRecipients=1 and only some addresses for a multi-author submission selected
+
+Committee Member:
+
+- Added reviewer un-assign (own) review feature
+- Added committee-reviewunassign notification template
+- Added support for non-ASCII, UTF-8 usernames
+
+Author:
+
+- Added support for emailing all authors per OC_emailAuthorRecipients on submit, edit, withdraw, upload
+- Fixed retention of unsaved field changes when re-ordering authors
+
+Advocate Assign:
+
+- Added advocate name and email address as email variable options in reviewer notification of assignment messages
+- Added review unassignment feature enabled by new Chair setting (OC_ADV_ASSIGN_unassignreview)
+- Fixed incorrect reviewer assignment option listing based on OC_ADV_ASSIGN_limitmemberbytopic setting
+
+Copyright-ACM:
+
+- Added additional authors' email address column to CSV
+- Changed default email address to be First Author
+
+Custom Forms:
+
+- Added built-in field deletion confirmation dialog
+- Moved jQuery library definitions to init.inc
+
+Discussion:
+
+- Fixed last post link under list_threads
+
+Proceedings:
+
+- Changed settings page layout
+- Added Chair-customizable submission summary (abstract) page template
+- Added search feature with Chair-controlled field options
+- Deprecated OC_PROCEEDINGS_includeAbstract setting -- use template feature instead
+
+Program:
+
+- Added author presentation sessions to session chair / discussant view assignments page
+- Added abstract and author country as option in sessions export
+- Added check for use of non-required submission fields in session export
+- Added topic filter to session edit submission assignment
+- Added session chair and discussant organization to full matrix program
+- Added Chair-customizable submission summary (abstract) page template
+- Deprecated OC_PROGRAM_includeAbstract setting -- use template feature instead
+- Changed options for display of author (affiliation) details in full program to include organization, country, or both
+- Fixed Chrome bug preventing scrolling under Talks tab
+- Changed session Submissions Assigned order number to null for a submission if none yet selected
+
+
+### OpenConf 6.60 ###
+
+- Changed install to assign unique value to OCC_SESSION_VAR_NAME to avoid multiple installation session collision
+- Changed field note for fields with Long Label attribute set to display above instead of below field
+- Changed include-forms.inc field validation to display a 1 for min char range if field is required and input resulted in error
+- Changed include-forms.inc to just display hidden field and not full fieldset for those containing a single hidden field
+- Updated CKEditor CDN library to 4.5.7 full
+- Updated countries and time zones lib
+- Added hidesubtypes attribute to include-forms.inc fields for designating submission types for which field should not be displayed
+- Added optional $subtype param to include.php:oc_displayReviews(),oc_displayReview() in support of hidesubtypes
+
+Chair:
+
+- Added alert note pop-up if multiple addresses entered for Chair Email on config page
+- Added config setting OC_allowEmailConflict to optionally permit author/reviewer pairing with same email address, with option on List Conflicts page
+- Added config setting OC_authorOneContact to Configuration page
+- Added config setting OC_emailAuthorRecipients to designate author recipients of Chair emails (0=contact only, 1=all)
+
+Author:
+
+- Added author-upload email notification template
+- Added config setting OC_authorOneContact to force Author 1 as the contact author and hide the Contact Author field
+- Added config setting OC_authorsRequiredData to designate whether the required attribute for author fields applies to all (0), first (1), or contact (2)
+
+Advocate Assign:
+
+- Fixed assign_reviews.php to prevent reviewer use
+
+Custom Forms:
+
+- Added review form field attribute to specify submission types for which the field should be excluded
+
+Discussion:
+
+- Added support for hidesubtypes
+
+IEEE eCopyright:
+
+- Updated IEEE test server URL
+
+MultiFile:
+
+- Added support for emailing all authors
+
+Program:
+
+- Added session chair to discussant view assignments listing
+- Added submission topics to abstract and program books
+- Added support for emailing all authors
+
+Rebuttal:
+
+- Added support for emailing all authors
+
+Reviewer Upload:
+
+- Changed session time verification to account for different PHP/MySQL times
+
+
+### OpenConf 6.50 ###
+
+- DB: added paperrevewer.assigned
+- Added Persian translation
+- Added hooks: author-submit-postsave, chair-email-variables, chair-email-authors, header-top, footer-bottom, chair-session
+- Added modules: Auto Assign, Publons
+- Added include.php function: oc_inConflict()
+- Addded separate open/close of committee review and advocacy (OC_rev_review_open, OC_pc_advocate_open)
+- Updated CKEditor CDN library to 4.5.6
+- Changed include-download.inc action parameter name to daction for module deconfliction
+- Fixed include-download.inc memory limit calculation if only numbers reported by PHP
+- Changed language sort order to language name based on locale.inc order
+
+Chair:
+
+- Changed auto review assignment suggested values to account for whether PC members are assigned as reviewers
+- Changed module sort order to case insensitive
+- Changed username character limit to 50
+- Fixed summary page notice for undefined acceptance values
+- Added review assignment date
+
+Committee Member:
+
+- Changed username character limit to 50
+- Changed features with conflict detection to account for review/advocate assignment
+
+Advocate Assign:
+
+- Added option to restrict list of reviewer assignees to those with matching topics to the advocate
+- Added review assignment date
+
+Copyright-IEEE:
+
+- Changed ArtSource setting to allow longer codes
+
+Custom Forms:
+
+- Updated jQuery and jQueryUI CDN version
+
+Payment:
+
+- Added optional PayPal currency code setting
+
+Proceedings:
+
+- Added encoding to downloaded proceedings pages
+
+Program:
+
+- Changed program and page detection of HTML tags to be broader
+- Fixed missing room info for concurrent sessions under full program matrix view
+- Added option to use * for session title -- the title will then be auto-changed to that of a single submission assigned to the session
+
+Reviewer Upload:
+
+- Added Chair bulk download of reviewer-uploaded files
+
+
+### OpenConf 6.40 ###
+
+- DB: added template.type, template.variables, reviewer.orcid
+- Added hooks: show_scores, committee-advocate-fields, committee-advocate-extra, committee-advocate-validate, committee-advocate-save, committee-advocate-preinc, committee-advocate-inc, chair-unassign-advocate, chair-unassign-reviewer
+- Deprecated hook: chair-unassign-review (use chair-unassign-reviewer instead)
+- Changed English country names to use Unicode CLDR.  The ISO English names may still be found in lib/locale/en/countries-iso.php
+- Added off-screen skip navigation link and other accessibility improvements
+- Added output buffer flush before include-download.inc readfile to avoid running out of memory
+- Added include.php functions: oc_deleteAssignments(), oc_getTemplate(), oc_replaceVariables()
+- Fixed display of topic/session form fields in special cases where they are auto-converted from checkboxes to radio buttons
+- Changed auto email notification  text from hard-coded to database template table
+- Changed dropdown fields to display blank option even if field is required
+
+Chair:
+
+- Added optional cell character limit for submissions/reviews export
+- Changed summary page format
+- Fixed saving OC_topicDisplayAlpha setting when reset to No in set_topics.php
+- Added confirmation dialog when submissions deleted/withdrawn
+- Changed default email recipient group to none
+- Added option on auto review assignment to specify different number of max submissions to be assigned PC members vs reviewers
+- Fixed warning on export reviews guide when field does not contain values attribute
+- Changed settings export to include version number, and import to check installed version is same or more current
+- Added auto email notification editor
+
+Committee Member:
+
+- Changed submission assignments displayed on committee member home page to be sorted by ID
+- Changed advocate.php to use advocate.inc and include-forms.php
+- Added config setting for hiding committee profile form fields (OC_hideCmtFields)
+
+Author:
+
+- Added advanced configuration setting for limiting file upload size (OC_fileLimit)
+
+Advocate Assign:
+
+- Added support for notification template
+
+Bidding:
+
+- Added support for specifying different number of max submissions per PC member vs reviewer on auto review assign
+- Changed Chair summary display to match new format
+
+Custom Forms:
+
+- Added support for OC_hideCmtFields
+
+FileType:
+
+- Added file format identification using PHP Fileinfo
+
+IEEE Copyright:
+
+- Removed deprecated ArtDate
+- Changed ArtEmail to submit all authors' email addresses
+- Added option to record, view and export IEEE-returned copyright type (OC_IEEE_COPYRIGHT_recordCopyright, OC_IEEE_COPYRIGHT_token)
+- Fixed use of custom return URL
+
+MultiFile:
+
+- Updated file-link2.inc to reflect new assignments view filename
+- Changed Chair summary display to match new format
+- Changed MF type delete to leave `paper` table format column in place to avoid error in case withdrawn submissions are restored
+- Changed uninstall to iterate through matching format column names instead of using registered MF type IDs
+
+Plagiarism-iThenticate:
+
+- Added title prefix setting (OC_ITHENTICATE_titlePrefix)
+
+Program:
+
+- DB: Changed module_oc_program_scdaccounts.code to .password
+- Added base author fields to session export
+- Added program-export-session-setup and program-export-session-process hooks to session export
+- Added ability to sign in with author or reviewer account for accessing session chair and discussant assignments
+- Changed abstract book to use native language
+- Fixed missing charset set in program download
+- Fixed mobile app map URL parameter when https used
+- Fixed program book schedule room display
+- Fixed program book date variables
+- Added cell char limit option to session export
+- Added time format configuration setting (OC_PROGRAM_timeFormat) and changed program feature to use it
+- Added .ics export of personalized program
+- Added browser cookie to remember personalized program option for 30 days
+- Added session topic, if included, to full web program display
+- Moved program-mobile.php to mobile/data.php
+- Added mobile/cache.php, updating references
+
+
+### OpenConf 6.30 ###
+
+- Added Hungarian translation
+- Added hooks: author-edit-bottom, author-email_papers-bottom, author-paper-bottom, author-upload-bottom, author-reset-bottom, author-status-bottom, author-withdraw-bottom
+- Added setting for base OpenConf URL (OC_openconfURL), dynamically generated if not already defined
+- Changed header class from p to h1
+- Added $length parameter to generateSelectOptions() for truncating options display length
+- Added DB: reviewer.lastupdate, reviewer.lastsignin
+- Removed IE8 emulation and openconf-ie.css
+- Removed deprecated -[moz|khtml]-border-radius styles
+- Changed OCC_CHAIR_PWD_TRUMPS check from individual sign in pages to oc_password_verify()
+- Added MySQL locale strings to lib/locale.inc
+
+Chair:
+
+- Added submission type filtering to Submission Scores page
+- Added submission type and acceptance status filtering to List Submissions, List Reviews, and List Advocates pages
+- Changed Create Stub Title field max length
+- Fixed submissions export feature when advocate data selected
+- Changed list of automatically detected conflicts displayed on Set Conflicts page to account for OC_allowOrgConflict
+- Added option to toggle OC_allowOrgConflict on Set Conflicts page
+- Added confirmation dialog to automated assignments when overwriting existing ones
+- Added option to skip submissions with acceptance decision when making automated review/advocate assignments
+- Added option to select submission type for making automated review/advocate assignments
+- Added OC_authorsMinDisplay and OC_authorsMax options to Configuration page
+- Added option for overriding PC decision if not pending when changing acceptance selection on scores page, and changed default behavior to not override
+- Added option for setting acceptance decision to match advocate recommendation on scores page
+- Added OpenConf URL to manual review/advocate assignment email notification
+- Added [:OC_openconfURL:] email variable
+
+Author:
+
+- Changed contact author field to be hidden on submission form if OC_authorsMinDisplay and OC_authorsMax are set to 1
+- Removed country from list of fields checked for authors data in case it is set to required and has value pre-selected
+
+Bidding:
+
+- Added support for new Chair automated assignment options for constraining submission assignments
+
+CAPTCHA:
+
+- Added support for reCAPTCHA API 2.0 (nocaptcha)
+
+MultiFile:
+
+- Added file-link2.inc and support for alternative program files display format
+
+Plagiarism-iThenticate:
+
+- Fixed non-reporting for reports with 0% match
+- Fixed submission title link
+
+Proceedings:
+
+- Fixed download error if table name prefix used or acceptance type with no submissions
+
+Program:
+
+- DB: Added tables module_oc_program_booktemplates, module_oc_program_scdaccounts
+- Added feature to generate an abstract book
+- Added feature to generate a program book
+- Removed extraneous code from program-at_a_glance.inc
+- Fixed incorrect date display in case of time zone differential between MySQL and PHP
+- Changed generation of session chair and discussant titles to program code instead of CSS for i18n and screen reader support
+- Added session chair and discussant view assignments feature
+
+Payment:
+
+- Changed to use Braintree version 2 library
+- Removed OC_payment_braintree_encryptionKey setting
+- Added settings export/import support
+
+Sub. Payment:
+
+- Added settings export/import support
+
+
+### OpenConf 6.20 ###
+
+- Added DB template.updated
+- Changed DB template.body to default null
+- Added use of CKEditor CDN, modifying how CKEditor plugin is used internally
+- Added data/zip/ directory for staging ZIP files
+- Added "default" topic for new installations
+
+Chair:
+
+- Added Presenting Authors email recipient group if submission form presenter field enabled
+- Added export support for Excel 2007 (xlsx) format and cleaned up export code
+- Added email template editor
+- Changed email.php, splitting shared functionality into new email.inc and consolidating $*varAR into $OC_emailVarAR[]
+- Changed settings export to include all templates, and import to only those for installed modules
+- Added bulk (ZIP) download of author-uploaded files on list submissions and view files pages
+- Fixed advanced configuration JavaScript to avoid Chrome notices
+- Added review and comment fields variables to email Authors - All and Student recipient groups
+- Fixed [:advocate-comment:] email variable name
+- Changed recipient group ordering to natcasesort; $recipients array format changed
+- Fixed missing advocate data when exporting submissions if advocate field selected but not Committee Notes
+- Changed Scores page to display scores of 0
+
+Committee Member:
+
+- Added bulk (ZIP) download of assigned submission files on member home page
+- Fixed the display of review data to advocates
+
+Author:
+
+- Added logging of make submission, edit submission, and upload file events
+
+Custom Forms:
+
+- Added restriction on custom field IDs to end in a letter so as to avoid conflict with numbered author field names
+
+IEEE Copyright:
+
+- Added support for IEEE Prohibited Author List (PAL) online search via author export in requisite PAL format
+- Updated test URL
+- Added submission ID prefix setting (OC_IEEE_COPYRIGHT_idprefix)
+
+MultiFile:
+
+- Changed file-links.inc to include preview keycode in file view URL if present
+- Changed file-links.inc to use new uploaded file directory structure when exporting proceedings/program
+- Updated chair-email-recipient.inc to use new $OC_emailVarAR
+- Added support for bulk file download
+
+Proceedings:
+
+- Changed download summary page to use new file export data structure
+
+Program:
+
+- Added Program - Contact Authors email recipient group
+- Added author names to assigned submissions listing when editing a session
+- Added conflict detection of names and associated email addresses across overlapping sessions when editing a session
+- Added ability to view files when previewing program
+- Changed At-a-Glance program permission to allow display if Full program is closed
+- Renamed email.inc to chair-email-recipient.inc
+- Changed download summary page to use new file export data structure
+
+Rebuttal:
+
+- Renamed email.inc to chair-email-recipient.inc
+- Updated chair-email-recipient.inc to use new $OC_emailVarAR
+
+
+### OpenConf 6.10 ###
+
+- Added hooks: author-status, committee-profile-preinc
+- Added showauthor review form field attribute to designate fields that may be shown to author (i.e., check status page, acceptance emails)
+- Added linking of URL fields displayed in include-forms.inc:showFieldSet()
+
+Chair:
+
+- Changed review listing Recommendation legend to display full option text if no colon present
+- Added [:review-fields:] variable to author acceptance emails to include all review fields with showauthor attribute set (Pro Edition)
+- Changed presenter field check in email.php to support Custom Forms
+
+Committee Member:
+
+- Changed committee sign up and update code to latest field definition and validation format
+- Fixed incorrect processing of OC_hideRevFields
+- Fixed review form phantom sessions field when hidden
+
+Author:
+
+- Added all review fields with showauthor attribute set on Check Status page
+- Fixed submissions with no topics selected if field is not required
+
+Custom Forms:
+
+- Added Show Author attribute to review form field options (excludes sessions field)
+- Changed variable tracking custom form use to be type specific
+- Added support for customization of committee profile form
+ 
+FileType:
+
+- Added file extension verification of MS Office 2007+ formats
+
+Proceedings:
+
+- Added (HTML) Proceedings Download feature
+
+Program:
+
+- Added current discussants and session chairs to program building pick lists
+- Fixed incorrect back link and file URL on downloaded program session pages
+- Changed presenter field check in settings.inc to support Custom Forms
+- Changed mobile program XML data file to strip out Unicode control characters
+
+
+### OpenConf 6.01 ###
+
+- Security Fix
+
+
+### OpenConf 6.00 ###
+
+- PHP 5.3.7+ now required --with-mcrypt --with-mysqli
+- Changed MySQL API from mysql to mysqli
+- Added Bosnian translation
+- Updated all translations
+- Renamed Custom Forms to Form Fields
+- Deprecated Sub. Type module (use Custom Forms instead)
+- Added modules Custom Forms, Payment, and Sub. Payment
+- Added include.php functions: oc_strftime, ocsql_fetch_assoc, ocsql_fetch_array, ocsql_fetch_row, ocsql_insert_id, ocsql_num_rows, ocsql_affected_rows, ocsql_free_result, ocsql_data_seek, ocsql_close, ocsql_error, ocsql_errno
+- Added database port to config.php with default of 3306
+- Added DB author.orcid, paperreviewer.score
+- Changed DB reviewerid/advocateid to MEDIUMINT(6) for new installations, and paperreviewer.recommendation to TINYINT(3)
+- Changed DB author.* varchar to 255 characters
+- Added hooks: chair-signin, committee-signin, password-verify, author-submission-preinc, committee-review-preinc
+- Changed deprecated preg_replace calls with /e to preg_replace_callback
+- Fixed missing fclose() in include.php:oc_createDir()
+- Fixed handling of double-quotes in checkbox and radio field option values
+- Changed password storage hash, renamed include.php:hashPassword() to oc_password_hash(), and added oc_password_verify(), oc_password_needs_rehash()
+- Changed include.php:newPassword() to oc_password_generate()
+- Removed SALT_LENGTH constant
+- Added new settings for words to use in English (US) locale for Author and Chair (OC_wordForAuthor, OC_wordForChair)
+- Added output buffering around main content on home page
+- Added field types to include-forms.inc: hidden, dropdown, picklist, email
+- Added field options to include-forms.inc: maxchas, minchars, maxwords, minwords, maxselection, minselections, closeedit, longlabel, reviewer, advocate, width, height, placeholder, display
+- Deprecated select field type in include-forms.inc (use dropdown or picklist)
+- Added include-forms.inc: oc_validateField()
+- Deprecated include-forms.inc: oc_checkField() and oc_checkAuthorField()
+- Added openconf.js: oc_setupProcessingForm() and oc_processingForm()
+- Deprecated openconf.js: oc_showProcessing()
+- Added submission confirmation page notice setting (OC_subConfirmNotice), replacing hard-coded notice
+- Deprecated make submission confirmation file link (OC_includeSubmissionUploadLink); now specify in OC_subConfirmNotice
+- Deprecated submission form file field options (OC_includeSubmissionUploadField, OC_requireSubmissionUploadField, OC_paperFldNote); now set through Custom Forms and MultiFile modules, or directly via submission.inc
+- Deprecated abstract length setting (OC_abstractLength); now set through Custom Forms module, or directly via submission.inc
+- Removed separate student tracking, including config settings (OC_studentNote, OC_trackStudent); now set through Custom Forms module, or directly via submission.inc
+- Removed non-editable submission fields settings (OC_subNonEditFields); now set through Custom Forms module or use closeedit field option
+- Added min parameter to openconf.js:check(Word|Char)Num functions
+- Changed oc_() and oc_n() to return empty string instead of .po header if string is empty
+- Changed score calculation to be based on new paperreviewer.score column instead of recommendation
+- Added shortcut links on manual assignment pages to make additional and view assignments
+
+Chair:
+
+- Added settings export/import
+- Changed Chair home page to consolidate reports
+- Changed min number of displayed topics fields to 10
+- Removed $accOptions from chair/index.php
+- Renamed list_author_topics.php to list_topics_pcount.php
+- Added login session fixation prevention
+- Added configuration page field to set starting submission ID if no submissions in system
+- Changed email variable advocate-comment to advocate-comments
+- Changed Chair interface to be all English
+
+Committee Member:
+
+- Added login session fixation prevention
+- Changed show_abstract.php to use oc_showFieldSet() and skip fields with empty values
+- Updated abstract page reference sites
+- Added config option whether to display reference service links on abstract page (OC_includeReferenceSearchLinks)
+- Changed review form to use fieldsets
+- Changed review form to use include-forms.inc field validation
+- Changed review form required fields to be required for form submission, not just for marking review as complete
+- Changed sign up keycodes to accept a comma-delimited list of codes
+
+Author:
+
+- Added new setting to restrict Edit Submission to accepted authors only (OC_editAcceptedOnly)
+- Fixed update of Contact Author field options when deleting authors in Edit Submission
+- Changed submission form to better support single author events
+- Changed student field to normal field (NOTE: if upgrading, student field note must be manually updated)
+- Dropped otherauthors field support
+
+Multiple Modules:
+
+- Added settings import/export
+- Changed deprecated preg_replace calls with /e to preg_replace_callback
+- Changed password verification to use oc_password_verify()
+- Added support for custom Author/Chair name
+
+Adv. Assign:
+
+- Added optional display of submissions and reviewers by topic to advocates (OC_ADV_ASSIGN_viewtopics)
+
+Bidding:
+
+- Changed Chair home page links
+
+Discussion:
+
+- Fixed dates for non-English display
+
+FileType:
+
+- Changed to be installed and activated upon OpenConf installation
+- Added alternative file extensions for jpg and mpg
+
+IEEE Copyright:
+
+- Updated test URL
+
+MultiFile:
+
+- Added note to Format(s) header on config page
+- Changed links in file-links.inc to include file path for program download
+
+Program:
+
+- Added sub-pages to full program preview 
+- Added Program Download feature
+- Fixed dates for non-English display
+- Changed mobile settings geolocation API to Google
+- Changed automatic room sort order to also handle numberic values
+- Changed sort order of entries in Assign Accepted Submissions list on session edit page
+- Updated mobile program app to latest HTML5 standards
+- Fixed chair email preview for discussant and session chairs
+- Added presentation title in chair email to discussant recipient group
+
+#OC# Ala Viva #OC# ΦΚΨ #OC#

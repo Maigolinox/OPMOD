@@ -1,0 +1,5 @@
+## Friendly URLs
+#RewriteEngine on
+#RewriteCond %{REQUEST_URI} /_
+#RewriteRule ^_([a-z][a-z0-9_]*)-([a-zA-Z0-9_-]*)\.\.(.*)$ request.php?module=$1&action=$2.php&ocparams=$3
+

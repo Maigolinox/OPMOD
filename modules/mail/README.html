@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mail Module for OpenConf</title>
+<style type="text/css">
+body { font-family: arial, helvetica, sans-serif; font-size: 80%; }
+</style>
+</head>
+
+<body>
+<h1>Mail Module for OpenConf</h1>
+<p>This module adds support for using an external SMTP server in addition to the built-in PHP mail() function. The PHPMailer library is required and must be separately installed.</p>
+
+<h3>Requirements</h3>
+
+<p>The <a href="https://github.com/PHPMailer/PHPMailer" target="_blank">PHPMailer</a> library must be installed to the plugins/PHPMailer/ directory so that (for PHPMailer version 6+) the PHPMailer.php file is found at plugins/PHPMailer/src/PHPMailer.php or plugins/PHPMailer/PHPMailer.php. In order to use PHPMailer from another directory, modify the MOD_MAIL_PHPMAILER_DIR constant in the module.inc file.</p>
+
+<p>For PHPMailer &lt;= 5.2, the file PHPMailerAutoload.php must be in plugins/PHPMailer/PHPMailerAutoload.php, and module/mail/module.inc edited to remove the two <i>use</i> lines atop the file.</p>
+
+<p>The SMTP server must support multiple repeated connections. For example, if the Chair is sending an email to all contact authors and there are 100 submissions, the SMTP server will receive 100 connections, one after the other. If the SMTP server is slow, does rate limiting, or PHP is configured with a short script execution time, messages may fail.</p>
+
+<h3>Configuration</h3>
+
+<p>Mail options are defined via this module's settings. PHPMailer must be installed prior to accessing the settings.</p>
+
+<p>If possible, enter the SMTP server's IP address for the SMTP Host to speed up processing by saving the DNS lookup.</p>
+
+<p>A link is displayed at the bottom of the module's settings page to send a test message using the active mailer.</p>
+
+<h3>Usage</h3>
+
+<p>Once configured, this module works without user intervention.</p>
+
+<h3>Note</h3>
+
+<p>The SMTP server account username and password may optionally be set directly atop the module.inc file found in the module's directory -- see the section // SMTP Auth.</p>
+
+<hr />
+
+<p>Version 1.0.1<br />
+- Updated to support PHPMailer 6
+</p>
+
+<p>Version 1.0.0<br />
+- Initial Release</p>
+</body>
+</html>
